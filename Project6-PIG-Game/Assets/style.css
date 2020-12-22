@@ -1,0 +1,332 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: Lato;
+    font-weight: 300;
+    position: relative;
+    height: 100vh;
+    color: #555;
+}
+
+.wrapper {
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.player-0-panel,
+.player-1-panel {
+    width: 50%;
+    float: left;
+    height: 600px;
+    padding: 100px;
+}
+
+
+
+/**********************************************
+*** PLAYERS
+**********************************************/
+
+.player-name {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.player-score {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 100;
+    color: #EB4D4D;
+    margin-bottom: 130px;
+}
+
+.active { background-color: #f7f7f7; }
+.active .player-name { font-weight: 300; }
+
+.active .player-name::after {
+    content: "\2022";
+    font-size: 47px;
+    position: absolute;
+    color: #EB4D4D;
+    top: -7px;
+    right: 10px;
+    
+}
+
+.player-current-box {
+    background-color: #EB4D4D;
+    color: #fff;
+    width: 40%;
+    margin: 0 auto;
+    padding: 12px;
+    text-align: center;
+}
+
+.player-current-label {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #222;
+}
+
+.player-current-score {
+    font-size: 30px;
+}
+
+button {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover { font-weight: 600; }
+button:hover i { margin-right: 20px; }
+
+button:focus {
+    outline: none;
+}
+
+i {
+    color: #EB4D4D;
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 32px;
+    line-height: 1;
+    vertical-align: text-top;
+    margin-top: -4px;
+    transition: margin 0.3s;
+}
+
+.btn-new { top: 130px;}
+.btn-roll { top: 423px;}
+.btn-hold { top: 477px;}
+.btn-settings { top: 80px; }
+.btn-rules { top: 30px;}
+.btn-flag { top: 560px; font-weight: 600;}
+.dice {
+    position: absolute;
+    left: 45%; /* was 50% */
+    /* top: 178px; */
+    top: 180px;
+    /* transform: translateX(-50%); */
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+
+}
+
+#dice-1{
+    margin-top:110px;
+}
+
+.spin{
+    animation: rotate;
+    animation-duration: 0.5s;
+    transform: translateX(-50%)
+}
+
+.winner { background-color: #f7f7f7; }
+.winner .player-name { font-weight: 300; color: #EB4D4D; margin-top: -28px}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/**********************************************
+*** GAME POPUPS
+**********************************************/
+
+.popup:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display: none;
+}
+
+.popup-content {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 40%;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 25px;
+}
+
+.popup-close:link, .popup-close:visited { 
+    color: #777;
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.form { 
+    margin-top: 1.5rem;
+}
+
+.form-questions{
+    margin-bottom: 1rem;
+}
+
+.form-input { 
+    padding: 0.5rem 0.5rem;
+    border-radius: 2px;
+    width: 4.5rem;
+}
+
+.form-label { 
+    float:left; 
+    width: auto; 
+    width: 9rem; 
+    margin-top: 0.4rem; 
+    font-weight: bold;
+}
+
+.player-input { 
+    width: 10rem;
+}
+
+.get-started{
+    display:flex;
+    justify-content: center;
+    margin-right:100px;
+}
+
+.btn-play { 
+    /* display:flex;
+    justify-content:center;     */
+    /* margin-left:60px;
+    margin-top:15px; */
+    padding:15px; 
+    width: 100px; 
+    text-align: center; 
+    background: #EB4D4D; 
+    color:#fff; 
+    border: none; 
+    cursor: pointer;
+}
+
+#instructions li {
+    margin-left: 2em;
+    font-size:18px;
+    padding-top:0.2em;
+}
+
+
+/* add pictures for the settings option for one/two dice */
+.two-dice-img {
+    background-image: url("dice-2.png")
+}
+
+.one-dice-img {
+    background-image: url("dice-1.png")
+}
+
+.form-radio-group input {
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.form-radio-group input:active + .diceImg {
+    opacity: .9;
+    box-shadow: 0px 0px 2px 2px rgba(255, 0, 0, 0.3);
+}
+
+.form-radio-group input:checked + .diceImg {
+    box-shadow: 0px 0px 2px 2px rgba(255, 0, 0, 0.3);
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+  
+
+.diceImg {
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
+    border: 1px black;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1) grayscale(1) opacity(.3) invert(.3);
+       -moz-filter: brightness(1) grayscale(1) opacity(.3) invert(.3);
+            filter: brightness(1) grayscale(1) opacity(.3) invert(.3);
+}
+
+.diceImg:hover {
+    -webkit-filter: brightness(1.2) grayscale(.2) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.2) opacity(.9);
+            filter: brightness(1.2) grayscale(.2) opacity(.9);
+}
+  
