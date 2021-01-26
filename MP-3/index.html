@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@0;1&display=swap" rel="stylesheet">
+                <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <title>To-Do List</title>
+    </head>
+    <body>
+        <div class="flex">
+            <div class="top">
+                <div class="top-header">
+                    <div class="title">
+                        <u>To-Do List</u>: <br> <span id="date"></span>
+                    </div>
+                    <div class="quote-box">
+                        <button type="button" id="new-quote" class="button">Generate quote</button>
+                        <div id="quote-text"></div>
+                        <div id="quote-author"></div>
+                    </div>
+                </div>
+            </div>      
+            
+            <div class="bottom">
+                <div class="alert hidden">
+                    <span class="close-btn" onclick="parentElement.classList.add('hidden');">&times;</span>
+                    <span id="error">This is an alert box.</span>
+                </div>
+                <div class="add">
+                    <form class="add__container">
+                        <input type="text" class="add__description" placeholder="Add task">
+                        <input type="submit" class="add-btn" id="add-btn" value=""><button class="add-btn"><i class="ion-ios-plus-outline"></i></button></input>
+                    </form>
+                </div>
+                <div class="container">
+                    <div class="task-list">
+                        <h2 class="todo__title">Things To Do:</h2>
+                        <div class="task-list" id="task-container"></div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+
+        
+        <script src="app.js"></script>
+    </body>
+</html>
