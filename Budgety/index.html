@@ -2,50 +2,52 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <link type="text/css" rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
         <title>Tennis Budgety</title>
     </head>
     <body>
         
         <div class="top">
             <div class="budget">
-                <div class="budget__title">
-                    Expense Calculator App:
-                </div>
-                
-                <div class="budget__value">+ 2,345.64</div>
-                
-                <div class="budget__income clearfix" style="display: none">
-                    <div class="budget__income--text">Income</div>
-                    <div class="right">
-                        <div class="budget__income--value">+ 4,300.00</div>
-                        <div class="budget__income--percentage">&nbsp;</div>
+                <div class="header">                 
+                    <div class="budget__income clearfix" style="display: none">
+                        <div class="budget__income--text">Income</div>
+                        <div class="right">
+                            <div class="budget__income--value">+ 4,300.00</div>
+                            <div class="budget__income--percentage">&nbsp;</div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="budget__expenses clearfix">
-                    <div class="budget__expenses--text">TOTAL</div>
-                    <div class="right clearfix">
-                        <div class="budget__expenses--value">- 1,954.36</div>
-                        <div class="budget__expenses--percentage">45%</div>
+                    
+                    <div class="budget__expenses clearfix" style="display: none">
+                        <div class="budget__expenses--text">TOTAL</div>
+                        <div class="right clearfix">
+                            <div class="budget__expenses--value">- 1,954.36</div>
+                            <div class="budget__expenses--percentage">45%</div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="budget__expenses clearfix" style="margin-top: 20px">
-                    <select class="add__number__of__people">
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4" selected>4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                    <div class="budget__expenses--text">PAX (Per person)</div>
-                    <div class="right clearfix">
-                        <div class="budget__expenses--value-per-people">- 1,954.36</div>
-                        <div class="budget__expenses--number-of-people">45%</div>
+                    <div class="budget__expenses clearfix green-font flex" style="margin-top: 20px">
+                        <div class="left-header">
+                            <select class="add__number__of__people">
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4" selected>4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select> players
+                        </div>
+                        <div class="right clearfix align-center">
+                            <div class="budget__expenses--value-per-people">- 1,954.36</div>
+                            <div class="header-label"><i>per person</i></div>
+                        </div>
                     </div>
+                    <i class="total">Total:<div class="budget__value">+ 2,345.64</div></i>
                 </div>
             </div>
         </div>
@@ -59,9 +61,15 @@
                         <option value="inc">+</option>
                         <option value="exp" selected>-</option>
                     </select>
-                    <input type="text" class="add__description" placeholder="Add description">
-                    <input type="number" class="add__value" placeholder="Value">
-                    <button class="add__btn"><i class="fas fa-check"></i></button>
+                    <fieldset class="description-field">
+                        <legend class="small">Item</legend>     
+                        <input type="text" class="add__description">
+                    </fieldset>
+                    <fieldset class="value-field">
+                        <legend class="small">Amount</legend>     
+                        <input type="number" class="add__value">
+                    </fieldset>
+                    <button class="add__btn btn-tiny check-mark">+</button>
                 </div>
             </div>
             
@@ -107,41 +115,70 @@
                 
                 
                 
-                <div class="expenses">
-                    <h2 class="expenses__title">Expenses</h2>
-                    
+                <div class="expenses">                  
                     <div class="expenses__list">
                        
-                        <div class="item clearfix" id="expense-1234">
-                            <div class="item__description">Indoor Court</div>
+                        <div class="item clearfix row" id="expense-1234">
+                            <div class="left">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="-"/>                           
+                                <input type="number" class="item__quantity" id="150" min="0" step="0.5" value="1" placeholder="Qty">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="+"/>
+                            </div>
                             <div class="right clearfix">
                                 <div class="item__value">150</div>
+                                <div class="item__description">Indoor Court w/ Lights (QCSC)</div>                    
                             </div>
-                            <input type="button" class='quantity__info-buttons btn-tiny' value="-"/>                           
-                            <input type="number" class="item__quantity" id="150" min="0" step="0.5" value="1" placeholder="Qty">
-                            <input type="button" class='quantity__info-buttons btn-tiny' value="+"/>
                         </div>
                         
-                        <div class="item clearfix" id="expense-1235">
-                            <div class="item__description">Ballboy</div>
+                        <div class="item clearfix row" id="expense-1235">
+                            <div  class="left">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="-"/>                           
+                                <input type="number" class="item__quantity" id="120" min="0" step="0.5" value="1" placeholder="Qty">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="+"/>
+                            </div>
                             <div class="right clearfix">
                                 <div class="item__value">120</div>
+                                <div class="item__description">Ballboy (QCSC)</div>
                             </div>
-                            <input type="button" class='quantity__info-buttons btn-tiny' value="-"/>                           
-                            <input type="number" class="item__quantity" id="120" min="0" step="0.5" value="1" placeholder="Qty">
-                            <input type="button" class='quantity__info-buttons btn-tiny' value="+"/>
                         </div>
                        
-                        <div class="item clearfix" id="expense-1236 ">
-                            <div class="item__description">Guest Fee</div>
+                        <div class="item clearfix row" id="expense-1236 ">
+                            <div  class="left">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="-"/>                           
+                                <input type="number" class="item__quantity" id="102" min="0" step="0.5" value="1" placeholder="Qty">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="+"/>
+                            </div>
                             <div class="right clearfix">
                                 <div class="item__value">102</div>
+                                <div class="item__description">Guest Fee (QCSC)</div>
                             </div>
-                            <input type="button" class='quantity__info-buttons btn-tiny' value="-"/>                           
-                            <input type="number" class="item__quantity" id="102" min="0" step="0.5" value="1" placeholder="Qty">
-                            <input type="button" class='quantity__info-buttons btn-tiny' value="+"/>
                         </div>
                         
+                        <div class="item clearfix row" id="expense-1237 ">
+                            <div class="left">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="-"/>                           
+                                <input type="number" class="item__quantity" id="50" min="0" step="0.5" value="0" placeholder="Qty">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="+"/>
+                            </div>
+                            <div class="right clearfix">
+                                <div class="item__value">0</div>
+                                <div class="item__description">Outdoor Court no lights (QCSC)</div>
+                            </div>
+                        </div>
+
+                        <div class="item clearfix row" id="expense-1238 ">
+                            <div class="left">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="-"/>                           
+                                <input type="number" class="item__quantity" id="130" min="0" step="0.5" value="0" placeholder="Qty">
+                                <input type="button" class='quantity__info-buttons btn-tiny' value="+"/>
+                            </div>
+                            <div class="right clearfix">
+                                <div class="item__value">0</div>
+                                <div class="item__description">Outdoor Court w/ lights (QCSC)</div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
