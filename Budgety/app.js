@@ -197,7 +197,7 @@ function createItem(){
     left.appendChild(trashDiv)
 // create delete button
 	const trashButton = document.createElement('button');
-	trashButton.innerHTML = '<i class="ion-ios-close-outline">'
+	trashButton.innerHTML = '<i class="fas fa-trash">'
 	trashButton.classList.add("item__delete--btn");
     trashButton.classList.add("btn-tiny");
 
@@ -211,7 +211,7 @@ function createItem(){
 
 function deleteItem(e){
 	const i__class = e.target;
-	if (i__class.classList[0] === "ion-ios-close-outline"){
+	if (i__class.classList[0] === "fas fa-trash"){
         const closeDiv = i__class.parentElement.parentElement;
         const item = closeDiv.parentElement.parentElement;
         const itemDiv = item.parentElement;
